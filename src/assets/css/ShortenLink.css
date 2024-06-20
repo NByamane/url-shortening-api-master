@@ -1,0 +1,122 @@
+.shorten-link-input-erea-box {
+	padding: 50px;
+	background: #4B3F6C;
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+}
+
+.shorten-link-input-erea-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	mix-blend-mode: screen;
+	z-index: 0;
+	opacity: 0.3;
+}
+
+.shorten-link-input-area {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+.shorten-link-input {
+	width: 80%;
+	background: #fff;
+	color: #9C9BA1;
+	border: none;
+	font-size: 1.4em;
+	padding: 10px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	z-index: 1;
+}
+
+.shorten-link-btn {
+	width: 18%;
+	background: #29D2D1;
+	color: #fff;
+	border-radius: 10px;
+	font-size: clamp(1em, 2vw, 1.4em);
+	font-weight: bold;
+	box-sizing: border-box;
+	z-index: 2;
+}
+
+/*------直近3回の短縮URLリスト------*/
+.shorten-link-list-box {
+	padding: 200px 0 80px 0;
+	background: #F0F1F6;
+	margin: -100px 0 0 -2rem;
+	width: 100vw;
+	box-sizing: border-box;
+}
+
+.shorten-link-list {
+	padding: 0 2rem;
+	max-width: 1280px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.shorten-link-item {
+	width: 100%;
+	background: #fff;
+	border-radius: 10px;
+
+	list-style: none;
+	padding: 20px 30px;
+	box-sizing: border-box;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	font-size: 1.2rem;
+}
+
+.shorten-link-item:not(:last-child) {
+	margin: 0 0 20px 0;
+}
+
+.shorten-link-origin {
+	width: calc(98% - 380px);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+}
+
+.shorten-link-box {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	width: 380px;
+}
+
+.shorten-link {
+	width: calc(98% - 120px);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+	color: #29D2D1;
+}
+
+.shorten-link-copy-btn {
+	background: #29D2D1;
+	font-size: 0.8em;
+	font-weight: bold;
+	padding: 10px 40px;
+	width: 120px;
+	border: none;
+	transition: .3s;
+}
+
+.shorten-link-copy-btn:hover {
+	opacity: 0.5;
+}
