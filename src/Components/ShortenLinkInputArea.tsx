@@ -5,11 +5,18 @@ export interface UrlProps {
   onShorten: (originalUrl: string, shortUrl: string) => void;
 }
 
-export const ShortenLinkInputErea: React.FC<UrlProps> = ({ onShorten }):JSX.Element => {
+export const ShortenLinkInputArea: React.FC<UrlProps> = ({ onShorten }):JSX.Element => {
 	const [url, setUrl] = useState<string>('');
+  const [validation, setValidation] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); //submitボタンのデフォルト機能を解除
+    
+    //formに値があるかどうかを確認
+    if(!url) {
+      setValidation(true);
+      return;
+    }
 
     // APIリクエスト
     try {
@@ -32,15 +39,19 @@ export const ShortenLinkInputErea: React.FC<UrlProps> = ({ onShorten }):JSX.Elem
 	return(
 		<div className="shorten-link-input-erea-box">
 			<img src={inputBackImg} alt="短縮したいURL入力エリア" className='shorten-link-input-erea-img' />
-			<form onSubmit={handleSubmit} className='shorten-link-input-area'>
+			<form onSubmit={handleSubmit} className='shorten-link-input-area' noValidate>
 				<input
 					type="text"
 					value={url}
-          onChange={(e) => setUrl(e.target.value)}
-					className="shorten-link-input"
-					placeholder="Shorten a link here..."
+          onChange={(e) => {
+            setUrl(e.target.value);
+            setValidation(false); // 新たに入力が始まったらfalseにリセット
+          }}
+					className={`shorten-link-input ${validation ? 'error' : ''}`} // validationがtrueの時はerrorというclassを付与
+					placeholder="Shorten a link here..." 
 					required
 				/>
+        { validation && <p className="validation-msg">Please add a link</p> } 
 				<button type="submit" className="shorten-link-btn">Shorten It!</button>
 			</form>
 		</div>

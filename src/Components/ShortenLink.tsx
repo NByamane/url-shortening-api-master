@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../assets/css/ShortenLink.css'
-import { ShortenLinkInputErea } from './ShortenLinkInputErea'
+import { ShortenLinkInputArea } from './ShortenLinkInputArea'
 import { ShortenLinkList, ShortenedLink } from './ShortenLinkList'
 
 export const ShortenLink = ():JSX.Element => {
@@ -16,7 +16,7 @@ export const ShortenLink = ():JSX.Element => {
 
 	return(
 		<div>
-			<ShortenLinkInputErea onShorten={handleShortenLink} />
+			<ShortenLinkInputArea onShorten={handleShortenLink} />
 			<ShortenLinkList links={links} />
 		</div>
 	);

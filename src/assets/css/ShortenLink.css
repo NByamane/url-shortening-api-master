@@ -33,6 +33,23 @@
 	border-radius: 10px;
 	box-sizing: border-box;
 	z-index: 1;
+	position: relative;
+}
+
+.shorten-link-input.error {
+	border: 3px solid #E96770;
+}
+
+.shorten-link-input.error::placeholder {
+	color: #E96770;
+}
+
+.validation-msg {
+	position: absolute;
+	bottom: 0;
+	left: 50px;
+	color: #E96770;
+	font-weight: bold;
 }
 
 .shorten-link-btn {
