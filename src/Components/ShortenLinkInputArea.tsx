@@ -9,11 +9,20 @@ export const ShortenLinkInputArea: React.FC<UrlProps> = ({ onShorten }):JSX.Elem
 	const [url, setUrl] = useState<string>('');
   const [validation, setValidation] = useState<boolean>(false);
 
+  //URL形式が正しいかどうかのチェック
+  const isValidateUrl = (url: string) => {
+    const urlPattern = new RegExp('^(https?:\\/\\/)?'+ 
+                           '(([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}'+
+                           '(\\/[-a-z\\d%_.~+]*)*', 'i');
+
+    return urlPattern.test(url); //urlをtest()でチェックして、trueかfalseかを返す
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); //submitボタンのデフォルト機能を解除
     
     //formに値があるかどうかを確認
-    if(!url) {
+    if(!url || !isValidateUrl(url)) { // urlが空 or URL形式がfalseの場合
       setValidation(true);
       return;
     }
